@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ProductsContext } from "../../context/products-context";
-import { FeaturedProduct } from "../shared/featured-product";
+import FeaturedProduct from "../shared/featured-product";
 
 export const FeaturedCollection = () => {
   const { products } = useContext(ProductsContext);
