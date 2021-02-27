@@ -11,6 +11,7 @@ export const CartItem = (props) => {
     description,
     increase,
     decrease,
+    removeProduct,
   } = props;
   const product = { title, imageUrl, price, quantity, id, description };
   return (
@@ -30,12 +31,12 @@ export const CartItem = (props) => {
           <PlusCircleIcon width="20px" />
         </button>
         {quantity === 1 && (
-          <button className="btn-trash">
+          <button className="btn-trash" onClick={() => removeProduct(product)}>
             <TrashIcon width="20px" />
           </button>
         )}
         {quantity > 1 && (
-          <button className="btn-decrease" onClick={() => decrease(productgit)}>
+          <button className="btn-decrease" onClick={() => decrease(product)}>
             <MinusCircleIcon width="20px" />
           </button>
         )}

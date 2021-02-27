@@ -1,5 +1,3 @@
-import { act } from "react-dom/test-utils";
-
 export const sumItems = (cartItems) => {
   return {
     itemCount: cartItems.reduce((total, prod) => total + prod.quantity, 0),
@@ -50,6 +48,16 @@ export const cartReducer = (state, action) => {
         ...state,
         cartItems: [...state.cartItems],
         ...sumItems(state.cartItems),
+      };
+    case "REMOVE_ITEM":
+      const newCartItems = state.cartItems.filter(
+        (item) => item.id !== action.payload.id
+      );
+
+      return {
+        ...state,
+        cartItems: [...newCartItems],
+        ...sumItems(newCartItems),
       };
     default:
       return state;

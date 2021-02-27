@@ -1,15 +1,20 @@
 import React, { useContext } from "react";
-import { CartContex, CartContext } from "../../../context/cart-context";
+import { CartContext } from "../../../context/cart-context";
 import { Layout } from "../../shared/layout";
 import { CartItem } from "./cart-items";
 import Total from "./total";
 import "./cart-page.styles.scss";
 
 export const CartPage = () => {
-  const { cartItems, itemCount, total, increase, decrease } = useContext(
-    CartContext
-  );
-  const funcs = { increase, decrease };
+  const {
+    cartItems,
+    itemCount,
+    total,
+    increase,
+    decrease,
+    removeProduct,
+  } = useContext(CartContext);
+  const funcs = { increase, decrease, removeProduct };
 
   return (
     <Layout>
