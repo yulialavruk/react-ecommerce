@@ -13,6 +13,7 @@ export const CartPage = () => {
     increase,
     decrease,
     removeProduct,
+    clearCart,
   } = useContext(CartContext);
   const funcs = { increase, decrease, removeProduct };
 
@@ -30,7 +31,11 @@ export const CartPage = () => {
                   <CartItem {...item} key={item.id} {...funcs} />
                 ))}
               </div>
-              <Total itemCount={itemCount} total={total} />
+              <Total
+                itemCount={itemCount}
+                total={total}
+                clearCart={clearCart}
+              />
             </div>
           </>
         )}
